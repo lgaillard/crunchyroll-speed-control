@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Crunchyroll Speed control
 // @namespace    https://github.com/lgaillard
-// @version      2025-04-17
+// @version      2025-04-18
 // @description  Add Speed control to the Crunchyroll player.
 // @author       lgaillard
 // @license      MIT
@@ -21,7 +21,7 @@
     // TODO: Add a proper speed selection panel
 
     // For now only support toggling speed
-    const PLAYBACK_SPEEDS = [1, 2, 3];
+    const PLAYBACK_SPEEDS = [1, 1.5, 2];
 
     const HOVER_BACKGROUND = "rgb(35, 37, 43)";
 
@@ -83,7 +83,7 @@
                 speedSubMenu.addEventListener("click", _ => {
                     toggleSpeed();
                     // Refresh value displayed
-                    speedSubMenu.querySelector(":scope > div > div > div:nth-child(2) > div > div > div").innerText = video.playbackRate;
+                    valueNode.innerText = video.playbackRate;
                 });
 
                 qualitySubMenu.parentNode.insertBefore(speedSubMenu, qualitySubMenu);
@@ -96,10 +96,9 @@
         }
     }
 
-    const controlsObserver = new MutationObserver(
-        (mutationList, observer) => {
-            onControlsPackageChange();
-        });
+    const controlsObserver = new MutationObserver((mutationList, observer) => {
+        onControlsPackageChange();
+    });
 
     controlsObserver.observe(controlsPackage, {childList: true, subtree: true});
 })();
