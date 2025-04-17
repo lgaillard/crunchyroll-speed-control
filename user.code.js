@@ -11,6 +11,8 @@
 // @grant        none
 // @homepage     https://github.com/lgaillard/crunchyroll-speed-control
 // @supportURL   https://github.com/lgaillard/crunchyroll-speed-control/issues
+// @downloadURL  https://raw.githubusercontent.com/lgaillard/crunchyroll-speed-control/refs/heads/main/user.code.js
+// @updateURL    https://raw.githubusercontent.com/lgaillard/crunchyroll-speed-control/refs/heads/main/user.code.js
 // ==/UserScript==
 
 (function () {
